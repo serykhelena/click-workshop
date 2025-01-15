@@ -47,7 +47,7 @@ build-remove:
 	rm -rf build/
 
 .PHONY: clean-all
-clean-all: pycache-remove build-remove 
+clean-all: pycache-remove build-remove
 
 #* Service targets
 .PHONY: grep-todos
