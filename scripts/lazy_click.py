@@ -14,13 +14,13 @@ def cli():
     """
 
 
-def lazy_add(a, b):
+def lazy_add(a: int, b: int) -> int:
     """
     Ленивая композиция аргументов для сложения.
     Сложение выполняется только при вызове функции.
     """
 
-    def add():
+    def add() -> int:
         result = a + b
         logger.info("Непосредственное выполнение сложения")
         logger.info(f"Результат сложения: {result}")
