@@ -55,6 +55,11 @@ def read_txt_file(file_path: Path) -> str:
     help="Путь к файлу или директории",
 )
 @click.option(
+    "--coordinate",
+    type=(float, float),
+    help="Кортеж координат (например, --coordinates 1.0 2.0)",
+)
+@click.option(
     "--coordinates",
     type=(float, float),
     multiple=True,
@@ -70,6 +75,7 @@ def main(  # noqa: PLR0913
     config: click.File,
     path: click.Path,
     coordinates: list[tuple[float, float]],
+    coordinate: tuple[float, float],
 ):
     logger.info(f"Имя: {name} (тип: {type(name)})")
     logger.info(f"Возраст: {age} (тип: {type(age)})")
@@ -90,6 +96,8 @@ def main(  # noqa: PLR0913
             logger.info(f"Путь существует: {path} (тип: {type(path)})")
         else:
             logger.warning(f"Путь не существует: {path} (тип: {type(path)})")
+    if coordinate:
+        logger.info(f"Координата: {coordinate} (тип: {type(coordinate)})")
     if coordinates:
         logger.info(f"Координаты: {coordinates} (тип: {type(coordinates)})")
 
@@ -101,8 +109,10 @@ if __name__ == "__main__":
 # python typing_argument_click.py John 25
 # python typing_argument_click.py John 25 --color red
 # python typing_argument_click.py John 25 --config ../configs/config.txt
+# python typing_argument_click.py John 25 --tags python,cli,argparse
 # python typing_argument_click.py John 25 --path ../configs/
 # python typing_argument_click.py John 25 --coordinates 1.0 2.0 --coordinates 3.0 4.0
+# python typing_argument_click.py John 25 --coordinates 1.0 2.0
 # Нюансы:
 # Click предоставляет собственные классы типов для расширенных сценариев: click.Choice, click.File,
 #   click.Path, click.IntRange
