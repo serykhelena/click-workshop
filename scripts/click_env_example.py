@@ -1,6 +1,11 @@
+import logging
 import os
 
 import click
+
+# Настройка логирования
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
 
 
 @click.group()
@@ -22,9 +27,9 @@ def show_env(ctx):
     """
     Показать все загруженные переменные среды.
     """
-    click.echo("Текущие переменные среды:")
+    logger.info("Текущие переменные среды:")
     for key, value in ctx.obj["env"].items():
-        click.echo(f"{key}: {value}")
+        logger.info(f"{key}: {value}")
 
 
 @cli.command("add-env", help="Добавить новую переменную среды")
@@ -41,20 +46,20 @@ def add_env(ctx, key, value):
     # Опционально: добавляем в os.environ (будет доступно только в процессе выполнения)
     os.environ[key] = value
 
-    click.echo(f"Переменная среды '{key}' добавлена c значением '{value}'.")
+    logger.info(f"Переменная среды '{key}' добавлена c значением '{value}'.")
 
-    click.echo("Текущие переменные среды:")
-    for key, value in ctx.obj["env"].items():  # noqa: PLR1704
-        click.echo(f"{key}: {value}")
+    logger.info("Текущие переменные среды:")
+    for key_for, value_for in ctx.obj["env"].items():
+        logger.info(f"{key_for}: {value_for}")
 
 
 if __name__ == "__main__":
     cli()
 
+
 # Примеры вызова из командной строки:
 # python click_env_example.py show-env
-# python click_env_example.py get-env NEW_VAR
-# python click_env_example.py show-env
+# python click_env_example.py add-env NEW_VAR test_value
 
 # Нюансы:
 # ctx.ensure_object(dict): Инициализация объекта контекста, который используется для хранения
