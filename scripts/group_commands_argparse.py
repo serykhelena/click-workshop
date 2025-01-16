@@ -19,13 +19,6 @@ def delete_user(args):
     logger.info(f"Удаление пользователя c ID: {args.user_id}")
 
 
-def list_users(args):
-    """
-    Команда для вывода списка пользователей.
-    """
-    logger.info(f"Вывод списка пользователей c фильтром: {args.filter}")
-
-
 def main():
     parser = argparse.ArgumentParser(description="Пример группировки команд c argparse")
 
