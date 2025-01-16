@@ -10,7 +10,7 @@ logger = logging.getLogger()
 
 # ctx: Объект контекста текущей команды.
 # param: Объект параметра, который вызывает функцию.
-def comma_separated_list(ctx, param, value):  # noqa: ARG001
+def comma_separated_list(ctx: click.Context, param: click.Parameter, value: str) -> list[str]:  # noqa: ARG001
     """
     Пример пользовательской функции для преобразования строкового аргумента
     в список, разделённый запятыми.
@@ -28,7 +28,7 @@ def read_txt_file(file_path: Path) -> str:
     """
     Функция для чтения содержимого файла конфигурации c использованием контекстного менеджера.
     """
-    with Path(file_path).open("r") as file:
+    with file_path.open("r") as file:
         return file.read()
 
 
