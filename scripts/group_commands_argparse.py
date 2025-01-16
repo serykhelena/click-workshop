@@ -47,11 +47,6 @@ def main():
     delete_parser.add_argument("user_id", type=int, help="ID пользователя для удаления")
     delete_parser.set_defaults(func=delete_user)
 
-    # Команда `list` для вывода списка пользователей
-    list_parser = subparsers.add_parser("list", help="Вывести список пользователей")
-    list_parser.add_argument("--filter", type=str, help="Фильтр для списка", default=None)
-    list_parser.set_defaults(func=list_users)
-
     # Парсим аргументы
     args = parser.parse_args()
 
@@ -69,5 +64,3 @@ if __name__ == "__main__":
 # Примеры вызова из командной строки:
 # python group_commands_argparse.py add John 30
 # python group_commands_argparse.py delete 101
-# python group_commands_argparse.py list --filter "active"
-# python group_commands_argparse.py list
