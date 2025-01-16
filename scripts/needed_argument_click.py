@@ -2,9 +2,13 @@ import click
 
 
 @click.command()
+# Позиционный обязательный аргумент name
 @click.argument("name", type=str)
+# Позиционный необязательный аргумент age (принимает любое число значений)
 @click.argument("age", type=int, nargs=-1)
+# Опция email (необязательная)
 @click.option("--email", type=str)
+# Опция id_user (обязательная)
 @click.option("--id_user", type=int, required=True)
 def process_files(name: str, age: int | None, email: str | None, id_user: int) -> None:
     """Обрабатываем несколько файлов."""
