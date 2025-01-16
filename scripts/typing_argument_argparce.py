@@ -5,7 +5,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
-def comma_separated_list(value):
+def comma_separated_list(value: str) -> list[str]:
     """
     Пример пользовательской функции для преобразования строкового аргумента
     в список, разделённый запятыми.

@@ -24,10 +24,19 @@ def comma_separated_list(ctx, param, value):  # noqa: ARG001
         raise click.BadParameter(msg) from None
 
 
+def read_txt_file(file_path: Path) -> str:
+    """
+    Функция для чтения содержимого файла конфигурации c использованием контекстного менеджера.
+    """
+    with Path(file_path).open("r") as file:
+        return file.read()
+
+
 @click.command(help="Расширенный пример типизации c click")
 @click.argument("name", type=str)
 @click.argument("age", type=int)
 @click.option("--pi", type=float, default=3.14, help="Произвольное число c плавающей точкой")
+# Самописный тип опции
 @click.option("--tags", callback=comma_separated_list, help="Список тегов, разделённых запятыми")
 @click.option("--optional", type=str, help="Опциональный аргумент без явного типа")
 @click.option(
@@ -42,7 +51,7 @@ def comma_separated_list(ctx, param, value):  # noqa: ARG001
 )
 @click.option(
     "--path",
-    type=click.STRING,
+    type=Path,
     help="Путь к файлу или директории",
 )
 @click.option(
@@ -59,7 +68,7 @@ def main(  # noqa: PLR0913
     optional: str,
     color: str,
     config: click.File,
-    path: str,
+    path: click.Path,
     coordinates: list[tuple[float, float]],
 ):
     logger.info(f"Имя: {name} (тип: {type(name)})")
@@ -73,10 +82,9 @@ def main(  # noqa: PLR0913
     if color:
         logger.info(f"Цвет: {color} (тип: {type(color)})")
     if config:
-        logger.info(f"Содержимое файла конфигурации: {config.read()}")
+        config_content = read_txt_file(config.name)
+        logger.info(f"Содержимое файла конфигурации: {config_content}")
     if path:
-        # Преобразование строки в путь
-        path = Path(path)
         # Использование пути
         if path.exists():
             logger.info(f"Путь существует: {path} (тип: {type(path)})")
