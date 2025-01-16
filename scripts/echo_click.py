@@ -16,12 +16,12 @@ logger = logging.getLogger("example_logger")
 @click.option("--error", is_flag=True, help="Вывести сообщение в stderr")
 @click.option("--styled", is_flag=True, help="Применить стилизацию к сообщению")
 def main(  # noqa: PLR0913
-    message,
-    use_echo,
-    use_print,
-    use_logger,
-    error,
-    styled,
+    message: str,
+    use_echo: bool,  # noqa: FBT001
+    use_print: bool,  # noqa: FBT001
+    use_logger: bool,  # noqa: FBT001
+    error: bool,  # noqa: FBT001
+    styled: bool,  # noqa: FBT001
 ):
     """
     Демонстрация особенностей вывода в CLI.

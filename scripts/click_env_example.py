@@ -10,7 +10,7 @@ logger = logging.getLogger()
 
 @click.command(help="Пример использования переменной среды в опции")
 @click.option("--username", envvar="USERNAME", help="Имя, задано через переменную среды USERNAME")
-def greet(username):
+def greet(username: str) -> None:
     """
     Приветствие пользователя c использованием имени из переменной среды.
     """
@@ -48,7 +48,7 @@ def show_env(ctx):
 @click.argument("key", type=str)
 @click.argument("value", type=str)
 @click.pass_context
-def add_env(ctx, key, value):
+def add_env(ctx: click.Context, key: str, value: str) -> None:
     """
     Добавить новую переменную в контекст и системные переменные среды.
     """

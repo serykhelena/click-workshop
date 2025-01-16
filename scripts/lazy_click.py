@@ -31,7 +31,7 @@ def lazy_add(a: int, b: int) -> int:
 @click.command()
 @click.argument("a", type=int)
 @click.argument("b", type=int)
-def add(a, b):
+def add(a: int, b: int) -> None:
     """
     Команда для сложения двух чисел c ленивой композицией.
     """
