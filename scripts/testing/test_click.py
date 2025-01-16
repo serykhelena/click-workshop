@@ -37,3 +37,8 @@ if __name__ == "__main__":
 
 # Запуск тестов
 # python -m unittest test_click.py
+
+# Нюансы:
+# Есть модуль click.testing c раннером CliRunner
+# CliRunner сам перехватывает вывод и позволяет проверить exit code.
+# Позволяет тестировать click-утилиты без использования pytest и обходиться стандартным модулем unittest
