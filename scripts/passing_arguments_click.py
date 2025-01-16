@@ -27,7 +27,7 @@ logger = logging.getLogger()
 # '--id' - необязательная опция. Пользователь может указать id
 @click.option("--debug", is_flag=True, help="Включить режим отладки")
 # '--debug' - флаговая опция, которая активируется, если пользователь явно её указывает.
-def hello_click(name: str, age: int, id_user: int | None, debug: bool) -> None:  # noqa: FBT001
+def hello_click(name: str, age: int, id_user: int | None, debug: bool) -> None:
     """
     Функция приветствия.
 
