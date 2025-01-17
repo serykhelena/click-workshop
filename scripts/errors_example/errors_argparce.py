@@ -16,7 +16,7 @@ class CustomArgumentParser(argparse.ArgumentParser):
         self.exit(2)
 
 
-def main():
+def main() -> None:
     parser = CustomArgumentParser(description="Пример кастомизации ошибок c цветным выводом")
 
     parser.add_argument("name", type=str, help="Имя пользователя")

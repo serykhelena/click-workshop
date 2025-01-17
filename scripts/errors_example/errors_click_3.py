@@ -4,7 +4,7 @@ import click
 
 
 @contextmanager
-def handle_errors():
+def handle_errors() -> None:
     try:
         yield
     except ValueError as error:
@@ -14,7 +14,7 @@ def handle_errors():
 
 @click.command()
 @click.argument("word")
-def print_word(word):
+def print_word(word: str) -> None:
     """Простейший обработчик, который выводит слово."""
     with handle_errors():
         if not word.isalpha():

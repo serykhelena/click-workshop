@@ -8,7 +8,7 @@ def cli():
 
 @cli.command()
 @click.argument("word")
-def printing(word):
+def printing(word: str) -> None:
     """Простейший обработчик, который выводит слово."""
     if not word.isalpha():
         msg = "Только буквы!"
@@ -17,7 +17,7 @@ def printing(word):
 
 
 @cli.result_callback()
-def handle_error(result):
+def handle_error(result: int) -> int:
     """Обработчик ошибок для команды."""
     try:
         return result
