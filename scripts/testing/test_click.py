@@ -18,15 +18,15 @@ def add(a: int, b: int) -> None:
 
 # Тесты
 class TestAddCommand(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.runner = CliRunner()
 
-    def test_add_positive_numbers(self):
+    def test_add_positive_numbers(self) -> None:
         result = self.runner.invoke(add, ["3", "5"])
         assert result.exit_code == 0  # noqa: S101
         assert "Сумма: 8" in result.output  # noqa: S101
 
-    def test_invalid_arguments(self):
+    def test_invalid_arguments(self) -> None:
         result = self.runner.invoke(add, ["three", "5"])
         assert result.exit_code != 0  # noqa: S101
         assert "Invalid value" in result.output  # noqa: S101

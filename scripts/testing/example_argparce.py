@@ -5,7 +5,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Сложение двух целых чисел.")
     parser.add_argument("a", type=int, help="Первое целое число")
     parser.add_argument("b", type=int, help="Второе целое число")
