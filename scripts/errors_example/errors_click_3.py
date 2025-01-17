@@ -4,7 +4,7 @@ import click
 
 
 @contextmanager
-def handle_errors() -> None:
+def handle_errors():
     try:
         yield
     except ValueError as error:

@@ -16,4 +16,4 @@ def test_adder():
 # pytest test_argparce.py
 
 # Нюансы:
-# Необходимо использовать фикстуру capsys, которая даёт доступ к тексту из stdout и stderr
+# Необходимо использовать фикстуру, которая даёт доступ к тексту из stdout и stderr из pytest
