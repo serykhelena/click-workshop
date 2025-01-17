@@ -5,7 +5,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Пример работы c флагами")
 
     # Флаг, который активирует определенную опцию

@@ -13,7 +13,7 @@ logger = logging.getLogger()
     is_flag=True,  # Флаг, который устанавливает значение True
     help="Включить флаг",
 )
-def main(flag):
+def main(flag: bool) -> None:
     """Пример работы c флагами в click."""
     if flag:
         click.echo("Включен флаг")
