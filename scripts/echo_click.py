@@ -51,12 +51,12 @@ if __name__ == "__main__":
     main()
 
 # Примеры вызова из командной строки:
-# python example.py "Hello, Click!" --use-echo --styled
-# python example.py "Hello, Click!" --use-echo > output.txt
-# python example.py "Hello, Print!" --use-print
-# python example.py "Hello, Logger!" --use-logger
-# python example.py "This is an error!" --use-echo --error
-# python example.py "This is an error!" --use-print --error
+# python echo_click.py "Hello, Click!" --use-echo --styled
+# python echo_click.py "Hello, Click!" --use-echo > output.txt
+# python echo_click.py "Hello, Print!" --use-print
+# python echo_click.py "Hello, Logger!" --use-logger
+# python echo_click.py "This is an error!" --use-echo --error
+# python echo_click.py "This is an error!" --use-print --error
 
 # Нюансы:
 # click.echo: Обеспечивает корректную обработку символов Unicode и автоматически
