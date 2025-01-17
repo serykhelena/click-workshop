@@ -28,6 +28,7 @@ classifiers = [  #! Update me
 python = "~3.10.0"
 python-dotenv = "^1.0.1"
 click = "^8.1.8"
+click-help-colors = "^0.9.4"
 
 [tool.poetry.group.dev.dependencies]
 # In case of packages without patch part we just want to update them through minor versions
