@@ -1,7 +1,7 @@
 import subprocess
 
 
-def test_adder(capsys):  # noqa: ARG001
+def test_adder():
     args = ["python", "example_argparce.py", "3", "5"]
 
     # Захватываем stderr, где находится вывод логов
@@ -11,6 +11,9 @@ def test_adder(capsys):  # noqa: ARG001
     # Проверяем, есть ли в выводе ожидаемый текст
     assert "Сумма: 8" in output, f"Ожидалось 'Сумма: 8', но получили: {output}"  # noqa: S101
 
+
+# Запуск теста
+# pytest test_argparce.py
 
 # Нюансы:
 # Необходимо использовать фикстуру capsys, которая даёт доступ к тексту из stdout и stderr
