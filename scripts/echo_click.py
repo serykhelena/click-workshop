@@ -17,11 +17,11 @@ logger = logging.getLogger("example_logger")
 @click.option("--styled", is_flag=True, help="Применить стилизацию к сообщению")
 def main(  # noqa: PLR0913
     message: str,
-    use_echo: bool,  # noqa: FBT001
-    use_print: bool,  # noqa: FBT001
-    use_logger: bool,  # noqa: FBT001
-    error: bool,  # noqa: FBT001
-    styled: bool,  # noqa: FBT001
+    use_echo: bool,
+    use_print: bool,
+    use_logger: bool,
+    error: bool,
+    styled: bool,
 ):
     """
     Демонстрация особенностей вывода в CLI.
