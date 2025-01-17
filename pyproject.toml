@@ -99,7 +99,7 @@ convention = "numpy"
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S", "D", "INP001"]
 "click_workshop/__init__.py" = ["D400", "D103"]
-"scripts/*" = ["BLE001", "D", "INP001", "E501", "FBT001"]
+"scripts/*" = ["BLE001", "D", "INP001", "E501", "FBT001", "S101"]
 
 [tool.ruff.format]
 # Like Black, use double quotes for strings.

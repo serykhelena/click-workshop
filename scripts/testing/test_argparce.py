@@ -9,7 +9,7 @@ def test_adder():
     output = result.stderr  # Используем stderr для логов
 
     # Проверяем, есть ли в выводе ожидаемый текст
-    assert "Сумма: 8" in output, f"Ожидалось 'Сумма: 8', но получили: {output}"  # noqa: S101
+    assert "Сумма: 8" in output, f"Ожидалось 'Сумма: 8', но получили: {output}"
 
 
 # Запуск теста
